@@ -17,7 +17,7 @@ public class Model extends Observable {
 
     public Model(int canBalls) {
        circ= new Circle(100,100,300);
-       rac=new Racket(30,120,200,500,80,0);
+       rac=new Racket(30,120,150,500,45,0);
        balls = new Array();
        this.balls.add(new Balls(300,300,25,40,30)); 
     }

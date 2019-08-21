@@ -22,7 +22,7 @@ public class Racket extends Actor {
     @Override
     public void move (Model model){
         x+=dx;
-        if(x+width>=model.circ.r||x<=0)
+        if(x+width>=model.circ.r+250 || x<=130)
             dx*=-1;
     }
 }
