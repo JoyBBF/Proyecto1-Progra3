@@ -48,16 +48,16 @@ public class View extends JFrame implements Observer{
         this.controller = controller;
     }
     
-    public void paint(Model model, Graphics graphics){
+    public void paint(Graphics graphics){
         super.paintComponents(graphics);
         
         this.renderModel(model, graphics);
     }
     
-    public void renderModel(Model m, Graphics g){
-        renderCirc(m.circ, g);
-        renderBalls(m.balls, g);
-        renderRacket(m.rac, g);
+    public void renderModel(Model m, Graphics graphics){
+        renderCirc(m.circ, graphics);
+        renderBalls(m.balls, graphics);
+        renderRacket(m.rac, graphics);
     }
     
     public void renderCirc(Circle circ, Graphics graphics){
@@ -66,9 +66,9 @@ public class View extends JFrame implements Observer{
     }
     public void renderBalls(Array balls, Graphics graphics){
         Balls actual;
-        for(int i=0; i<balls.can;i++){
+        graphics.setColor(Color.green);
+        for(int i=0; i < balls.can; i++){
             actual = balls.getPos(i);
-            graphics.setColor(Color.green);
             graphics.fillOval(actual.x-actual.r, actual.y-actual.r, 2*actual.r, 2*actual.r);
         }
     }

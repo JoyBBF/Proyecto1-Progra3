@@ -16,15 +16,14 @@ public class Model extends Observable {
     public Racket rac;
 
     public Model(int canBalls) {
-       circ= new Circle(750,750,900 );
-       rac=new Racket(150,30,0,600,80,0);
+       circ= new Circle(100,100,300);
+       rac=new Racket(30,120,200,500,80,0);
        balls = new Array();
-       balls.add(new Balls(200,150,25,40,30)); 
+       this.balls.add(new Balls(300,300,25,40,30)); 
     }
     
     public void Steps(){
-           for (int i=0;i<balls.getCan();i++)
-               balls.move(i, this);
+           balls.move(this);
            rac.move(this);
            this.setChanged();
            this.notifyObservers();

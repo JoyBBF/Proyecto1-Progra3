@@ -15,15 +15,16 @@ public class Array {
     int can;
 
     public Array() {
-        int tam=10;
-        int can=0;
+        tam = 10;
+        can = 0;
+        array = new Balls[tam];
         for (int i=0; i<tam;i++){
-            array[i]=null;
+            array[i] = null;
         }
     }
     
     public void add(Balls ball){
-        if(can<tam)
+        if(can < tam)
         {
             array[can]=ball;
             can++;
@@ -55,10 +56,9 @@ public class Array {
         return null;///me obligó a poner esto por mientras, ahí lo corriges
     }
     
-    public void move(int i, Model model){
-        if (i<can && i>=0)
-        {
-           array[i].move(model);
+    public void move(Model model){
+        for(int i = 0; i < can; i++){
+            array[i].move(model);
         }
         //else->exception implementar
     }

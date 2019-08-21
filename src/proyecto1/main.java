@@ -8,14 +8,18 @@ package proyecto1;
  
 public class main {
     
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException{
         Model model = new Model(1);
         View view = new View();
         Controller controller = new Controller(model, view);
         
+        view.setVisible(true);
+        
         
         while(true){
+            Thread.sleep(1000);
             model.Steps();
+            //break;
         }
     }
     
