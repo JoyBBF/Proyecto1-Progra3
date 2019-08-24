@@ -11,10 +11,12 @@ package proyecto1;
  */
 public class Balls extends Actor{
     public int r;
+    public boolean w;
 
     public Balls( int x, int y,int r, int dx, int dy) {
         super(x,y,dx,dy);
         this.r = r;
+        w = false;
     }
 
     public int getR() {
@@ -28,14 +30,22 @@ public class Balls extends Actor{
     @Override
     public void move(Model model){
         
-        float pit=pitagoras(model.circ.x, x+dx, model.circ.y, y+dy);
+        float pit=pitagoras(model.circ.x+model.circ.r, x+dx, model.circ.y+model.circ.r, y+dy);
+        float pitx1=pitagoras(model.circ.x+model.circ.r, x+dx*-1, model.circ.y+model.circ.r, y+dy);
+         //float pitx2=pitagoras(model.circ.x+model.circ.r, x+dx, model.circ.y+model.circ.r, y+dy);
+          float pity1=pitagoras(model.circ.x+model.circ.r, x+dx, model.circ.y+model.circ.r, y+dy*-1);
+          // float pity2=pitagoras(model.circ.x+model.circ.r, x+dx, model.circ.y+model.circ.r, y+dy);
      
         if(pit >= model.circ.r){
-            if(x+dx>=model.circ.x+model.circ.r)
+            if(pity1>model.circ.r){
                 dx*=-1;
+                w = true;
+            }
          
-            if (y+dy>=model.circ.y+model.circ.r)
+            if (pitx1>model.circ.r){
                 dy*=-1;
+                w = true;
+            }
         }
         
         
@@ -43,6 +53,7 @@ public class Balls extends Actor{
         
         if(x+dx>=model.rac.x && x+dx<=model.rac.x+model.rac.width && y+dy>=model.rac.y)
         { setDy(dy*-1);
+           w = true;
         }
             
         x+=dx;

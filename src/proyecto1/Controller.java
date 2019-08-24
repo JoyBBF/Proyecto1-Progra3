@@ -20,4 +20,15 @@ public class Controller {
         view.setModel(model);
         model.addObserver(view);
     }
+    
+    public void move(int flecha){
+        model.move(flecha);
+    }
+    public void stopVer(){
+        model.stopVer();
+    }
+    public void stopHor(){
+        model.stopHor();
+    }
+    
 }

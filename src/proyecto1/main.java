@@ -17,7 +17,8 @@ public class main {
         
         
         while(true){
-            Thread.sleep(500);
+            
+            Thread.sleep(60);
             model.Steps();
             //break;
         }
